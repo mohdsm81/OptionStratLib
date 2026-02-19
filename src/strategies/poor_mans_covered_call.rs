@@ -862,8 +862,8 @@ mod tests_pmcc_validation {
     use super::*;
     use positive::pos_or_panic;
 
-    use crate::constants::DAYS_IN_A_YEAR;
     use crate::error::position::PositionValidationErrorKind;
+    use positive::constants::DAYS_IN_A_YEAR;
 
     use rust_decimal_macros::dec;
 
@@ -1003,7 +1003,7 @@ mod tests_pmcc_optimization {
     use positive::{pos_or_panic, spos};
 
     use crate::chains::OptionData;
-    use crate::constants::DAYS_IN_A_YEAR;
+    use positive::constants::DAYS_IN_A_YEAR;
 
     use rust_decimal_macros::dec;
 
@@ -1186,7 +1186,7 @@ mod tests_pmcc_optimization {
 mod tests_pmcc_pnl {
     use super::*;
 
-    use crate::constants::DAYS_IN_A_YEAR;
+    use positive::constants::DAYS_IN_A_YEAR;
 
     use num_traits::ToPrimitive;
     use positive::pos_or_panic;
@@ -1275,7 +1275,7 @@ mod tests_pmcc_pnl {
 mod tests_pmcc_best_area {
     use super::*;
 
-    use crate::constants::DAYS_IN_A_YEAR;
+    use positive::constants::DAYS_IN_A_YEAR;
 
     use num_traits::ToPrimitive;
     use positive::pos_or_panic;
@@ -1352,7 +1352,7 @@ mod tests_pmcc_best_area {
 mod tests_pmcc_best_ratio {
     use super::*;
 
-    use crate::constants::DAYS_IN_A_YEAR;
+    use positive::constants::DAYS_IN_A_YEAR;
 
     use num_traits::ToPrimitive;
     use positive::pos_or_panic;

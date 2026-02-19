@@ -206,9 +206,9 @@ pub fn calculate_price_probability(
 #[cfg(test)]
 mod tests_single_point_probability {
     use super::*;
-    use crate::constants::DAYS_IN_A_YEAR;
     use approx::assert_relative_eq;
     use chrono::{Duration, Utc};
+    use positive::constants::DAYS_IN_A_YEAR;
     use rust_decimal_macros::dec;
 
     // Helper function to create default volatility adjustment
@@ -557,8 +557,8 @@ mod tests_single_point_probability {
 #[cfg(test)]
 mod tests_calculate_price_probability {
     use super::*;
-    use crate::constants::DAYS_IN_A_YEAR;
     use approx::assert_relative_eq;
+    use positive::constants::DAYS_IN_A_YEAR;
 
     #[test]
     fn test_price_probability_basic() {

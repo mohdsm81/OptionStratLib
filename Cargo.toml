@@ -1,6 +1,6 @@
 [package]
 name = "optionstratlib"
-version = "0.14.3"
+version = "0.14.4"
 edition = "2024"
 authors = ["Joaquin Bejar <jb@taunais.com>"]
 description = "OptionStratLib is a comprehensive Rust library for options trading and strategy development across multiple asset classes."
@@ -65,6 +65,7 @@ utoipa = { workspace = true, features = ["axum_extras", "chrono", "decimal"] }
 indicatif = { workspace = true }
 thiserror = { workspace = true }
 positive = { workspace = true }
+expiration_date = { workspace = true }
 tokio = { workspace = true, optional = true }
 async-trait = { workspace = true, optional = true }
 reqwest = { workspace = true, optional = true }
@@ -114,11 +115,11 @@ members = [
 [workspace.dependencies]
 optionstratlib = { path = "." }
 tracing = "0.1"
-rust_decimal = { version = "1.39", features = ["maths", "serde"] }
-rust_decimal_macros = "1.39"
+rust_decimal = { version = "1.40", features = ["maths", "serde"] }
+rust_decimal_macros = "1.40"
 plotly = { version = "0.14", default-features = false, features = ["static_export_default"] }
 chrono = { version = "0.4", features = ["serde"] }
-rand = { version = "0.9" }
+rand = { version = "0.10" }
 statrs = "0.18"
 tracing-subscriber = { version = "0.3"}
 num-traits = "0.2"
@@ -131,13 +132,14 @@ zip = "6.0"
 lazy_static = "1.5"
 uuid = { version = "1.19", features = ["v4", "serde"] }
 approx = "0.5"
-rand_distr = "0.5"
+rand_distr = "0.6"
 prettytable-rs = "0.10"
 pretty-simple-display = "0.1"
 utoipa = { version = "5.4", features = ["axum_extras", "chrono", "decimal"] }
 indicatif = "0.18"
 thiserror = "2.0"
-positive = { version = "0.3", features = ["utoipa"] }
+positive = { version = "0.3.1", features = ["utoipa"] }
+expiration_date = { version = "0.1", features = ["utoipa"] }
 tokio = { version = "1.43", features = ["full"] }
 async-trait = "0.1"
 reqwest = { version = "0.13", features = ["json"] }

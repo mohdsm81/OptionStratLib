@@ -246,7 +246,7 @@ mod tests_calculate_probability {
     use super::*;
     use positive::{pos_or_panic, spos};
 
-    use crate::constants::DAYS_IN_A_YEAR;
+    use positive::constants::DAYS_IN_A_YEAR;
 
     use rust_decimal_macros::dec;
 

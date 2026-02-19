@@ -1840,10 +1840,11 @@ pub fn color(option: &Options) -> Result<Decimal, GreeksError> {
 #[cfg(test)]
 pub mod tests_delta_equations {
     use super::*;
-    use crate::constants::{DAYS_IN_A_YEAR, ZERO};
+    use crate::constants::ZERO;
     use crate::model::types::{OptionStyle, Side};
     use crate::model::utils::create_sample_option;
     use crate::strategies::DELTA_THRESHOLD;
+    use positive::constants::DAYS_IN_A_YEAR;
 
     use crate::{ExpirationDate, assert_decimal_eq};
     use approx::assert_relative_eq;
@@ -2069,9 +2070,9 @@ pub mod tests_delta_equations {
 #[cfg(test)]
 pub mod tests_gamma_equations {
     use super::*;
-    use crate::constants::DAYS_IN_A_YEAR;
     use crate::model::types::{OptionStyle, Side};
     use crate::model::utils::create_sample_option;
+    use positive::constants::DAYS_IN_A_YEAR;
 
     use crate::ExpirationDate;
     use approx::assert_relative_eq;
@@ -2266,9 +2267,9 @@ mod tests_gamma_equations_values {
 pub mod tests_vega_equation {
     use super::*;
     use crate::ExpirationDate;
-    use crate::constants::DAYS_IN_A_YEAR;
     use crate::model::types::{OptionType, Side};
     use num_traits::ToPrimitive;
+    use positive::constants::DAYS_IN_A_YEAR;
     use positive::pos_or_panic;
     use rust_decimal_macros::dec;
 
@@ -2384,11 +2385,11 @@ pub mod tests_vega_equation {
 #[cfg(test)]
 pub mod tests_rho_equations {
     use super::*;
-    use crate::constants::DAYS_IN_A_YEAR;
     use crate::model::types::{OptionStyle, OptionType, Side};
     use crate::{ExpirationDate, assert_decimal_eq};
     use approx::assert_relative_eq;
     use num_traits::ToPrimitive;
+    use positive::constants::DAYS_IN_A_YEAR;
     use positive::pos_or_panic;
     use rust_decimal_macros::dec;
 
@@ -2469,11 +2470,11 @@ pub mod tests_rho_equations {
 pub mod tests_theta_long_equations {
     use super::*;
     use crate::ExpirationDate;
-    use crate::constants::DAYS_IN_A_YEAR;
     use crate::model::types::Side;
     use crate::model::utils::create_sample_option;
     use approx::assert_relative_eq;
     use num_traits::ToPrimitive;
+    use positive::constants::DAYS_IN_A_YEAR;
     use positive::pos_or_panic;
 
     #[test]
@@ -2571,11 +2572,11 @@ pub mod tests_theta_long_equations {
 pub mod tests_theta_short_equations {
     use super::*;
     use crate::ExpirationDate;
-    use crate::constants::DAYS_IN_A_YEAR;
     use crate::model::types::Side;
     use crate::model::utils::create_sample_option;
     use approx::assert_relative_eq;
     use num_traits::ToPrimitive;
+    use positive::constants::DAYS_IN_A_YEAR;
     use positive::pos_or_panic;
 
     #[test]
@@ -2953,9 +2954,9 @@ mod tests_greeks_trait {
 pub mod tests_vanna_equation {
     use super::*;
     use crate::ExpirationDate;
-    use crate::constants::DAYS_IN_A_YEAR;
     use crate::model::types::{OptionType, Side};
     use num_traits::ToPrimitive;
+    use positive::constants::DAYS_IN_A_YEAR;
     use positive::pos_or_panic;
     use rust_decimal_macros::dec;
 
@@ -3072,9 +3073,9 @@ pub mod tests_vanna_equation {
 pub mod tests_vomma_equation {
     use super::*;
     use crate::ExpirationDate;
-    use crate::constants::DAYS_IN_A_YEAR;
     use crate::model::types::{OptionType, Side};
     use num_traits::ToPrimitive;
+    use positive::constants::DAYS_IN_A_YEAR;
     use positive::pos_or_panic;
     use rust_decimal_macros::dec;
 
@@ -3191,9 +3192,9 @@ pub mod tests_vomma_equation {
 pub mod tests_veta_equation {
     use super::*;
     use crate::ExpirationDate;
-    use crate::constants::DAYS_IN_A_YEAR;
     use crate::model::types::{OptionType, Side};
     use num_traits::ToPrimitive;
+    use positive::constants::DAYS_IN_A_YEAR;
     use positive::pos_or_panic;
     use rust_decimal_macros::dec;
 

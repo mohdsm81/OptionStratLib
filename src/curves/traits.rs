@@ -8,7 +8,7 @@ use crate::error::{CurveError, OperationErrorKind};
 use crate::geometrics::{BasicMetrics, MetricsExtractor, RangeMetrics, ShapeMetrics, TrendMetrics};
 use num_traits::ToPrimitive;
 use rand::rngs::StdRng;
-use rand::{Rng, SeedableRng};
+use rand::{RngExt, SeedableRng};
 use rust_decimal::Decimal;
 use statrs::distribution::{ContinuousCDF, Normal};
 use std::collections::BTreeSet;

@@ -15,15 +15,6 @@ pub const PI: Decimal = dec!(3.1415926535897932384626433832);
 /// Used as a baseline value for numerical comparisons and calculations.
 pub const ZERO: f64 = 0.0;
 
-/// Number of seconds in a 24-hour day (86400 = 24 * 60 * 60).
-/// Used for time-based calculations and conversions.
-#[allow(dead_code)]
-pub(crate) const SECONDS_IN_A_DAY: i64 = 86400;
-
-/// Standard number of days in a year as a Positive decimal value.
-/// Used for annualization calculations and time-based financial models.
-pub(crate) const DAYS_IN_A_YEAR: Positive = Positive(dec!(365.0));
-
 /// Small decimal value used as a threshold for convergence tests and equality comparisons.
 /// Represents a general tolerance level for numerical algorithms.
 pub(crate) const TOLERANCE: Decimal = dec!(1e-8);

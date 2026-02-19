@@ -5,10 +5,9 @@
 ******************************************************************************/
 use crate::model::option::ExoticParams;
 use crate::model::types::{AsianAveragingType, BarrierType, BinaryType, LookbackType};
-use crate::model::{ExpirationDate, OptionType, Options, Position};
+use crate::model::{OptionType, Options, Position};
 use crate::strategies::base::Strategy;
 use crate::{OptionStyle, Side};
-use chrono::{Duration, Utc};
 use rust_decimal_macros::dec;
 use std::fmt;
 
@@ -149,43 +148,6 @@ impl fmt::Display for ExoticParams {
         }
 
         write!(f, "{}", fields.join(", "))
-    }
-}
-
-impl fmt::Display for ExpirationDate {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        match self {
-            ExpirationDate::Days(days) => {
-                // Use the stored reference datetime if available, otherwise use get_date_with_options
-                if let Some(ref_dt) = ExpirationDate::get_reference_datetime() {
-                    // Calculate the expiration date using the reference datetime
-                    let expiration_date = ref_dt + Duration::days((*days).to_i64());
-                    write!(f, "{}", expiration_date.format("%Y-%m-%d %H:%M:%S UTC"))
-                } else if let Ok(date) = self.get_date_with_options(false) {
-                    // Use the date from get_date_with_options with current time
-                    write!(f, "{}", date.format("%Y-%m-%d %H:%M:%S UTC"))
-                } else {
-                    // Fallback if get_date_with_options fails
-                    let duration = Duration::days((*days).to_i64());
-                    let expiration = Utc::now() + duration;
-                    write!(f, "{}", expiration.format("%Y-%m-%d %H:%M:%S UTC"))
-                }
-            }
-            ExpirationDate::DateTime(date_time) => {
-                write!(f, "{}", date_time.format("%Y-%m-%d %H:%M:%S UTC"))
-            }
-        }
-    }
-}
-
-impl fmt::Debug for ExpirationDate {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        match self {
-            ExpirationDate::Days(days) => write!(f, "ExpirationDate::Days({days:.2})"),
-            ExpirationDate::DateTime(date_time) => {
-                write!(f, "ExpirationDate::DateTime({date_time})")
-            }
-        }
     }
 }
 
@@ -390,6 +352,7 @@ mod tests_options {
     use crate::model::types::BarrierType;
 
     use chrono::{NaiveDate, TimeZone, Utc};
+    use expiration_date::ExpirationDate;
     use positive::pos_or_panic;
 
     #[test]
@@ -535,9 +498,9 @@ mod tests_options {
 
 #[cfg(test)]
 mod tests_expiration_date {
-    use super::*;
 
-    use chrono::{Duration, NaiveDate, TimeZone};
+    use chrono::{Duration, NaiveDate, TimeZone, Utc};
+    use expiration_date::ExpirationDate;
     use positive::pos_or_panic;
     use tracing::info;
 
@@ -914,7 +877,8 @@ mod tests_option_type_display_debug {
 mod tests_position_type_display_debug {
     use super::*;
 
-    use chrono::{DateTime, NaiveDate, TimeZone};
+    use chrono::{DateTime, NaiveDate, TimeZone, Utc};
+    use expiration_date::ExpirationDate;
     use positive::pos_or_panic;
 
     fn get_option() -> (Options, DateTime<Utc>) {
@@ -1017,7 +981,7 @@ mod tests_strategy_type_display_debug {
     use crate::model::utils::create_sample_option_with_date;
 
     use crate::strategies::base::StrategyType;
-    use chrono::{NaiveDate, TimeZone};
+    use chrono::{NaiveDate, TimeZone, Utc};
     use positive::{Positive, pos_or_panic};
     use serde::Serialize;
 

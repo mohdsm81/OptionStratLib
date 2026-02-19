@@ -126,9 +126,10 @@ pub fn price_option_monte_carlo(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::constants::{DAYS_IN_A_YEAR, ZERO};
+    use crate::constants::ZERO;
     use crate::model::types::{OptionStyle, OptionType, Side};
     use crate::{ExpirationDate, assert_decimal_eq, f2du};
+    use positive::constants::DAYS_IN_A_YEAR;
     use positive::{Positive, pos_or_panic};
     use rust_decimal::MathematicalOps;
     use rust_decimal_macros::dec;

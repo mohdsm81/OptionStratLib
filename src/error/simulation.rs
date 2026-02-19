@@ -133,6 +133,14 @@ impl From<crate::error::PricingError> for SimulationError {
     }
 }
 
+impl From<expiration_date::error::ExpirationDateError> for SimulationError {
+    fn from(err: expiration_date::error::ExpirationDateError) -> Self {
+        SimulationError::OtherError {
+            reason: err.to_string(),
+        }
+    }
+}
+
 impl From<StrategyError> for SimulationError {
     fn from(err: StrategyError) -> Self {
         SimulationError::OtherError {

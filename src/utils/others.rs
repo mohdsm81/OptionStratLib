@@ -9,7 +9,7 @@ use crate::error::{DecimalError, Error};
 use itertools::Itertools;
 use num_traits::{FromPrimitive, ToPrimitive};
 use positive::Positive;
-use rand::{Rng, rng};
+use rand::{Rng, RngExt, rng};
 use rayon::prelude::*;
 use rust_decimal::Decimal;
 use std::collections::BTreeSet;

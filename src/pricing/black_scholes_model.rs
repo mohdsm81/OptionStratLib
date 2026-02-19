@@ -302,10 +302,10 @@ pub trait BlackScholes {
 #[cfg(test)]
 mod tests_black_scholes {
     use super::*;
-    use crate::constants::DAYS_IN_A_YEAR;
     use crate::greeks::{d1, d2};
     use crate::model::types::{OptionStyle, OptionType, Side};
     use crate::{ExpirationDate, Options, assert_decimal_eq};
+    use positive::constants::DAYS_IN_A_YEAR;
     use positive::{Positive, assert_pos_relative_eq, pos_or_panic};
     use rust_decimal_macros::dec;
 

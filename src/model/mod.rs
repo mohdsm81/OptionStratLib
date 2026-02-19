@@ -131,6 +131,7 @@ mod trade;
 pub use axis::BasicAxisTypes;
 pub use balance::*;
 pub use expiration::ExpirationDate;
+pub use expiration::ExpirationDateError;
 pub use option::Options;
 pub use position::Position;
 pub use profit_range::ProfitLossRange;

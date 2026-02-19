@@ -628,6 +628,12 @@ impl From<crate::error::CurveError> for ChainError {
     }
 }
 
+impl From<expiration_date::error::ExpirationDateError> for ChainError {
+    fn from(err: expiration_date::error::ExpirationDateError) -> Self {
+        ChainError::OptionDataError(OptionDataErrorKind::PriceCalculationError(err.to_string()))
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

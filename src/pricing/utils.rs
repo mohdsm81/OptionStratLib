@@ -566,9 +566,9 @@ mod tests_probability_keep_under_strike {
     use super::*;
     use positive::{Positive, pos_or_panic, spos};
 
-    use crate::constants::DAYS_IN_A_YEAR;
     use crate::model::types::{OptionStyle, OptionType};
     use crate::{ExpirationDate, assert_decimal_eq};
+    use positive::constants::DAYS_IN_A_YEAR;
     use rust_decimal_macros::dec;
     use tracing::info;
 

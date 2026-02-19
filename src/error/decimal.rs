@@ -293,6 +293,12 @@ impl From<&str> for DecimalError {
     }
 }
 
+impl From<expiration_date::error::ExpirationDateError> for DecimalError {
+    fn from(err: expiration_date::error::ExpirationDateError) -> Self {
+        DecimalError::Other(err.to_string())
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

@@ -503,6 +503,12 @@ impl From<&str> for GreeksError {
     }
 }
 
+impl From<expiration_date::error::ExpirationDateError> for GreeksError {
+    fn from(err: expiration_date::error::ExpirationDateError) -> Self {
+        GreeksError::StdError(err.to_string())
+    }
+}
+
 #[cfg(test)]
 mod tests_error_greeks {
     use super::*;

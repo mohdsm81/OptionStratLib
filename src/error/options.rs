@@ -390,6 +390,14 @@ impl From<String> for OptionsError {
     }
 }
 
+impl From<expiration_date::error::ExpirationDateError> for OptionsError {
+    fn from(err: expiration_date::error::ExpirationDateError) -> Self {
+        OptionsError::OtherError {
+            reason: err.to_string(),
+        }
+    }
+}
+
 impl From<PricingError> for OptionsError {
     fn from(value: PricingError) -> Self {
         Self::PricingError {

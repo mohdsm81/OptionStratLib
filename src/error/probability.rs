@@ -465,6 +465,12 @@ impl From<StrategyError> for ProbabilityError {
         }
     }
 }
+impl From<expiration_date::error::ExpirationDateError> for ProbabilityError {
+    fn from(err: expiration_date::error::ExpirationDateError) -> Self {
+        ProbabilityError::StdError(err.to_string())
+    }
+}
+
 impl From<OperationErrorKind> for ProbabilityError {
     fn from(error: OperationErrorKind) -> Self {
         match error {
