@@ -66,6 +66,8 @@ indicatif = { workspace = true }
 thiserror = { workspace = true }
 positive = { workspace = true }
 expiration_date = { workspace = true }
+financial_types = { workspace = true }
+option_type = { workspace = true }
 tokio = { workspace = true, optional = true }
 async-trait = { workspace = true, optional = true }
 reqwest = { workspace = true, optional = true }
@@ -138,8 +140,10 @@ pretty-simple-display = "0.1"
 utoipa = { version = "5.4", features = ["axum_extras", "chrono", "decimal"] }
 indicatif = "0.18"
 thiserror = "2.0"
-positive = { version = "0.3.1", features = ["utoipa"] }
+positive = { version = "0.4", features = ["utoipa"] }
 expiration_date = { version = "0.1", features = ["utoipa"] }
+financial_types = { version = "0.1", features = ["utoipa"] }
+option_type = { version = "0.1", features = ["utoipa"] }
 tokio = { version = "1.43", features = ["full"] }
 async-trait = "0.1"
 reqwest = { version = "0.13", features = ["json"] }
